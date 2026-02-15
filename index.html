@@ -8,8 +8,48 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="./dist/output.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-100 min-h-screen relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 pointer-events-none">
+        <!-- JavaScript Elements -->
+        <div class="absolute top-10 left-10 text-green-500/20 text-6xl font-mono transform rotate-12 animate-pulse">{ }</div>
+        <div class="absolute top-32 right-20 text-green-500/15 text-4xl font-mono transform -rotate-6">function()</div>
+        <div class="absolute bottom-20 left-20 text-green-500/10 text-5xl font-mono transform rotate-45">const</div>
+        
+        <!-- React Elements -->
+        <div class="absolute top-20 right-40 text-blue-500/20 text-7xl animate-spin-slow">⚛️</div>
+        <div class="absolute bottom-32 right-10 text-blue-500/15 text-5xl animate-bounce-slow">&lt;/&gt;</div>
+        <div class="absolute top-1/2 left-1/4 text-blue-500/10 text-6xl transform -rotate-12">React</div>
+        
+        <!-- Tailwind Elements -->
+        <div class="absolute bottom-10 right-1/3 text-purple-500/20 text-6xl">🎨</div>
+        <div class="absolute top-1/3 left-1/3 text-purple-500/15 text-4xl font-bold">CSS</div>
+        <div class="absolute top-2/3 right-1/4 text-purple-500/10 text-5xl transform rotate-6">Tailwind</div>
+        
+        <!-- Connecting Lines -->
+        <svg class="absolute inset-0 w-full h-full" style="z-index: -1;">
+            <line x1="10%" y1="20%" x2="50%" y2="50%" stroke="url(#gradient1)" stroke-width="2" opacity="0.1"/>
+            <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="url(#gradient2)" stroke-width="2" opacity="0.1"/>
+            <line x1="80%" y1="30%" x2="70%" y2="80%" stroke="url(#gradient3)" stroke-width="2" opacity="0.1"/>
+            
+            <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.5" />
+                </linearGradient>
+                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.5" />
+                </linearGradient>
+                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.5" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
     <div id="root"></div>
     
     <script type="text/babel">
@@ -25,8 +65,47 @@
                         </p>
                     </header>
 
+                    <div className="mb-12">
+                        <div className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 rounded-xl p-8 text-white shadow-2xl">
+                            <h2 className="text-3xl font-bold text-center mb-8">🚀 A Combinação Perfeita</h2>
+                            
+                            <div className="grid md:grid-cols-3 gap-6 mb-8">
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition">
+                                    <div className="text-4xl mb-3">📜</div>
+                                    <h3 className="text-xl font-bold mb-2">JavaScript</h3>
+                                    <p className="text-sm">A base de tudo</p>
+                                </div>
+                                
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition">
+                                    <div className="text-4xl mb-3">⚛️</div>
+                                    <h3 className="text-xl font-bold mb-2">React.js</h3>
+                                    <p className="text-sm">Interfaces reativas</p>
+                                </div>
+                                
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition">
+                                    <div className="text-4xl mb-3">🎨</div>
+                                    <h3 className="text-xl font-bold mb-2">Tailwind CSS</h3>
+                                    <p className="text-sm">Estilos modernos</p>
+                                </div>
+                            </div>
+                            
+                            <div className="text-center">
+                                <p className="text-lg mb-4">Juntos criando experiências web incríveis!</p>
+                                <div className="flex justify-center space-x-4">
+                                    <span className="bg-green-600 px-3 py-1 rounded-full text-sm">JS</span>
+                                    <span className="text-2xl">+</span>
+                                    <span className="bg-blue-600 px-3 py-1 rounded-full text-sm">React</span>
+                                    <span className="text-2xl">+</span>
+                                    <span className="bg-purple-600 px-3 py-1 rounded-full text-sm">Tailwind</span>
+                                    <span className="text-2xl">=</span>
+                                    <span className="bg-white text-gray-800 px-3 py-1 rounded-full text-sm font-bold">✨ Magic</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <main className="grid md:grid-cols-3 gap-8">
-                        <section className="bg-white rounded-lg shadow-lg p-6">
+                        <section className="bg-white rounded-lg shadow-lg p-6 transform hover:shadow-xl transition">
                             <h2 className="text-2xl font-semibold text-green-600 mb-4">
                                 📚 JavaScript Básico
                             </h2>
@@ -39,7 +118,7 @@
                             </a>
                         </section>
 
-                        <section className="bg-white rounded-lg shadow-lg p-6">
+                        <section className="bg-white rounded-lg shadow-lg p-6 transform hover:shadow-xl transition">
                             <h2 className="text-2xl font-semibold text-blue-600 mb-4">
                                 ⚛️ React.js
                             </h2>
@@ -52,7 +131,7 @@
                             </a>
                         </section>
 
-                        <section className="bg-white rounded-lg shadow-lg p-6">
+                        <section className="bg-white rounded-lg shadow-lg p-6 transform hover:shadow-xl transition">
                             <h2 className="text-2xl font-semibold text-purple-600 mb-4">
                                 🎨 Tailwind CSS
                             </h2>
