@@ -211,19 +211,6 @@ Depois de dominar esses fundamentos, você pode explorar:
 5. **Build Tools**: Vite, Webpack
 6. **TypeScript**: Adicionando tipagem estática
 
-## 🤝 Contribuição
-
-Este é um projeto de aprendizado. Sinta-se à vontade para:
-- Reportar erros ou melhorias
-- Adicionar novos exemplos
-- Melhorar a documentação
-- Compartilhar seus projetos
-
-## 📝 Licença
-
-Este projeto está sob licença MIT. Sinta-se livre para usar e modificar!
-
----
 
 **Happy Coding!** 🎉
 
