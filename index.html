@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React.js + Tailwind CSS + JavaScript - Do Zero</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const App = () => {
+            return (
+                <div className="container mx-auto px-4 py-8">
+                    <header className="text-center mb-12">
+                        <h1 className="text-4xl font-bold text-blue-600 mb-4">
+                            React.js + Tailwind CSS + JavaScript
+                        </h1>
+                        <p className="text-xl text-gray-700">
+                            Aprenda do zero com exemplos práticos
+                        </p>
+                    </header>
+
+                    <main className="grid md:grid-cols-3 gap-8">
+                        <section className="bg-white rounded-lg shadow-lg p-6">
+                            <h2 className="text-2xl font-semibold text-green-600 mb-4">
+                                📚 JavaScript Básico
+                            </h2>
+                            <p className="text-gray-600 mb-4">
+                                Fundamentos da linguagem que vai dar base para tudo.
+                            </p>
+                            <a href="./exemplos/javascript-basico.html" 
+                               className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+                                Ver Exemplos
+                            </a>
+                        </section>
+
+                        <section className="bg-white rounded-lg shadow-lg p-6">
+                            <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+                                ⚛️ React.js
+                            </h2>
+                            <p className="text-gray-600 mb-4">
+                                Biblioteca JavaScript para criar interfaces de usuário.
+                            </p>
+                            <a href="./exemplos/react-basico.html" 
+                               className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                                Ver Exemplos
+                            </a>
+                        </section>
+
+                        <section className="bg-white rounded-lg shadow-lg p-6">
+                            <h2 className="text-2xl font-semibold text-purple-600 mb-4">
+                                🎨 Tailwind CSS
+                            </h2>
+                            <p className="text-gray-600 mb-4">
+                                Framework CSS utilitário para estilização rápida.
+                            </p>
+                            <a href="./exemplos/tailwind-exemplos.html" 
+                               className="inline-block bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition">
+                                Ver Exemplos
+                            </a>
+                        </section>
+                    </main>
+
+                    <footer className="text-center mt-12 text-gray-600">
+                        <p>Comece pelos exemplos de JavaScript, depois React e por fim Tailwind CSS!</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

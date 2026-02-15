@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React.js Básico - Do Zero</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Componente Principal
+        const App = () => {
+            return (
+                <div className="container mx-auto px-4 py-8">
+                    <header className="text-center mb-8">
+                        <h1 className="text-3xl font-bold text-blue-600 mb-4">⚛️ React.js Básico</h1>
+                        <p className="text-gray-700">Fundamentos essenciais do React</p>
+                        <a href="../index.html" className="inline-block mt-4 text-blue-500 hover:underline">← Voltar para o início</a>
+                    </header>
+
+                    <main className="space-y-8">
+                        {/* 1. Componentes Funcionais */}
+                        <ComponentesSection />
+                        
+                        {/* 2. Props */}
+                        <PropsSection />
+                        
+                        {/* 3. Estado (useState) */}
+                        <EstadoSection />
+                        
+                        {/* 4. Eventos */}
+                        <EventosSection />
+                        
+                        {/* 5. Renderização Condicional */}
+                        <RenderizacaoCondicionalSection />
+                        
+                        {/* 6. Listas e Keys */}
+                        <ListasSection />
+                        
+                        {/* 7. useEffect */}
+                        <UseEffectSection />
+                        
+                        {/* 8. Componentes Filhos */}
+                        <ComponentesFilhosSection />
+                    </main>
+                </div>
+            );
+        };
+
+        // 1. Componentes Funcionais
+        const ComponentesSection = () => {
+            const MeuPrimeiroComponente = () => {
+                return (
+                    <div className="bg-blue-100 p-4 rounded">
+                        <h3 className="text-lg font-semibold text-blue-800">Meu Primeiro Componente!</h3>
+                        <p className="text-blue-600">Este é um componente funcional simples.</p>
+                    </div>
+                );
+            };
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">1. Componentes Funcionais</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Componente funcional
+const MeuComponente = () => {
+    return (
+        <div>
+            <h3>Título</h3>
+            <p>Conteúdo do componente</p>
+        </div>
+    );
+};
+
+// Uso
+<MeuComponente />`}</code></pre>
+                    </div>
+                    <MeuPrimeiroComponente />
+                </section>
+            );
+        };
+
+        // 2. Props
+        const PropsSection = () => {
+            const Saudacao = ({ nome, idade }) => {
+                return (
+                    <div className="bg-green-100 p-4 rounded">
+                        <h3 className="text-lg font-semibold text-green-800">
+                            Olá, {nome}!
+                        </h3>
+                        <p className="text-green-600">Você tem {idade} anos.</p>
+                    </div>
+                );
+            };
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">2. Props (Propriedades)</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Componente com props
+const Saudacao = ({ nome, idade }) => {
+    return (
+        <div>
+            <h3>Olá, {nome}!</h3>
+            <p>Você tem {idade} anos.</p>
+        </div>
+    );
+};
+
+// Uso
+<Saudacao nome="Maria" idade={25} />`}</code></pre>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <Saudacao nome="Maria" idade={25} />
+                        <Saudacao nome="João" idade={30} />
+                    </div>
+                </section>
+            );
+        };
+
+        // 3. Estado (useState)
+        const EstadoSection = () => {
+            const Contador = () => {
+                const [contador, setContador] = useState(0);
+
+                return (
+                    <div className="bg-yellow-100 p-4 rounded">
+                        <h3 className="text-lg font-semibold text-yellow-800">
+                            Contador: {contador}
+                        </h3>
+                        <div className="space-x-2 mt-2">
+                            <button 
+                                onClick={() => setContador(contador + 1)}
+                                className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                            >
+                                Incrementar
+                            </button>
+                            <button 
+                                onClick={() => setContador(contador - 1)}
+                                className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                            >
+                                Decrementar
+                            </button>
+                            <button 
+                                onClick={() => setContador(0)}
+                                className="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600"
+                            >
+                                Zerar
+                            </button>
+                        </div>
+                    </div>
+                );
+            };
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">3. Estado (useState)</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Hook useState
+const [estado, setEstado] = useState(valorInicial);
+
+// Exemplo: contador
+const [contador, setContador] = useState(0);
+
+// Atualizar estado
+setContador(contador + 1);
+setContador(novoValor);`}</code></pre>
+                    </div>
+                    <Contador />
+                </section>
+            );
+        };
+
+        // 4. Eventos
+        const EventosSection = () => {
+            const [mensagem, setMensagem] = useState("");
+
+            const handleClick = () => {
+                setMensagem("Botão clicado!");
+            };
+
+            const handleInputChange = (e) => {
+                setMensagem(`Você digitou: ${e.target.value}`);
+            };
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">4. Eventos</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Eventos em React
+onClick={handleClick}
+onChange={handleInputChange}
+onSubmit={handleSubmit}
+
+// Funções de evento
+const handleClick = () => {
+    // lógica do evento
+};`}</code></pre>
+                    </div>
+                    <div className="space-y-4">
+                        <button 
+                            onClick={handleClick}
+                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        >
+                            Clique em mim!
+                        </button>
+                        <input 
+                            type="text"
+                            onChange={handleInputChange}
+                            placeholder="Digite algo..."
+                            className="w-full px-3 py-2 border border-gray-300 rounded"
+                        />
+                        {mensagem && (
+                            <div className="bg-blue-100 p-3 rounded text-blue-800">
+                                {mensagem}
+                            </div>
+                        )}
+                    </div>
+                </section>
+            );
+        };
+
+        // 5. Renderização Condicional
+        const RenderizacaoCondicionalSection = () => {
+            const [estaLogado, setEstaLogado] = useState(false);
+            const [idade, setIdade] = useState(18);
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">5. Renderização Condicional</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Renderização condicional
+{condicao && <Componente />}
+{condicao ? <ComponenteA /> : <ComponenteB />}
+{condicao && <div>Conteúdo</div>}`}</code></pre>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="flex space-x-2">
+                            <button 
+                                onClick={() => setEstaLogado(!estaLogado)}
+                                className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
+                            >
+                                {estaLogado ? 'Deslogar' : 'Logar'}
+                            </button>
+                            <input 
+                                type="number"
+                                value={idade}
+                                onChange={(e) => setIdade(parseInt(e.target.value) || 0)}
+                                className="px-3 py-2 border border-gray-300 rounded w-20"
+                            />
+                        </div>
+                        
+                        <div className="bg-purple-100 p-4 rounded">
+                            {estaLogado ? (
+                                <div>
+                                    <h3 className="text-lg font-semibold text-purple-800">Bem-vindo de volta!</h3>
+                                    <p className="text-purple-600">Você está logado no sistema.</p>
+                                </div>
+                            ) : (
+                                <div>
+                                    <h3 className="text-lg font-semibold text-purple-800">Faça login</h3>
+                                    <p className="text-purple-600">Você não está logado.</p>
+                                </div>
+                            )}
+                            
+                            {idade >= 18 && (
+                                <p className="mt-2 text-green-700 font-semibold">
+                                    ✅ Você é maior de idade
+                                </p>
+                            )}
+                            
+                            {idade < 18 && idade > 0 && (
+                                <p className="mt-2 text-red-700 font-semibold">
+                                    ❌ Você é menor de idade
+                                </p>
+                            )}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // 6. Listas e Keys
+        const ListasSection = () => {
+            const [tarefas, setTarefas] = useState([
+                { id: 1, texto: "Aprender React", concluida: false },
+                { id: 2, texto: "Aprender Tailwind", concluida: true },
+                { id: 3, texto: "Construir um projeto", concluida: false }
+            ]);
+
+            const [novaTarefa, setNovaTarefa] = useState("");
+
+            const adicionarTarefa = () => {
+                if (novaTarefa.trim()) {
+                    setTarefas([...tarefas, {
+                        id: Date.now(),
+                        texto: novaTarefa,
+                        concluida: false
+                    }]);
+                    setNovaTarefa("");
+                }
+            };
+
+            const toggleTarefa = (id) => {
+                setTarefas(tarefas.map(tarefa =>
+                    tarefa.id === id 
+                        ? { ...tarefa, concluida: !tarefa.concluida }
+                        : tarefa
+                ));
+            };
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">6. Listas e Keys</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Renderizar listas
+{itens.map(item => (
+    <Componente key={item.id} item={item} />
+))}
+
+// Key é importante para performance
+key={item.id}`}</code></pre>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="flex space-x-2">
+                            <input 
+                                type="text"
+                                value={novaTarefa}
+                                onChange={(e) => setNovaTarefa(e.target.value)}
+                                onKeyPress={(e) => e.key === 'Enter' && adicionarTarefa()}
+                                placeholder="Nova tarefa..."
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded"
+                            />
+                            <button 
+                                onClick={adicionarTarefa}
+                                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                            >
+                                Adicionar
+                            </button>
+                        </div>
+                        
+                        <ul className="space-y-2">
+                            {tarefas.map(tarefa => (
+                                <li 
+                                    key={tarefa.id}
+                                    className="flex items-center space-x-2 p-2 bg-gray-50 rounded"
+                                >
+                                    <input 
+                                        type="checkbox"
+                                        checked={tarefa.concluida}
+                                        onChange={() => toggleTarefa(tarefa.id)}
+                                        className="w-4 h-4"
+                                    />
+                                    <span className={`flex-1 ${tarefa.concluida ? 'line-through text-gray-500' : ''}`}>
+                                        {tarefa.texto}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+            );
+        };
+
+        // 7. useEffect
+        const UseEffectSection = () => {
+            const [contador, setContador] = useState(0);
+            const [data, setData] = useState("");
+
+            // Efeito que executa toda vez que contador muda
+            useEffect(() => {
+                console.log(`Contador mudou para: ${contador}`);
+            }, [contador]);
+
+            // Efeito que executa uma vez (componentDidMount)
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setData(new Date().toLocaleTimeString());
+                }, 1000);
+
+                // Cleanup function
+                return () => clearInterval(interval);
+            }, []);
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">7. useEffect</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Hook useEffect
+useEffect(() => {
+    // efeito colateral
+    return () => {
+        // cleanup (opcional)
+    };
+}, [dependencias]); // array de dependências`}</code></pre>
+                    </div>
+                    <div className="space-y-4">
+                        <div className="bg-indigo-100 p-4 rounded">
+                            <h3 className="text-lg font-semibold text-indigo-800 mb-2">
+                                Relógio: {data}
+                            </h3>
+                            <p className="text-indigo-600">Atualiza a cada segundo (useEffect com cleanup)</p>
+                        </div>
+                        
+                        <div className="flex items-center space-x-4">
+                            <button 
+                                onClick={() => setContador(contador + 1)}
+                                className="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600"
+                            >
+                                Incrementar ({contador})
+                            </button>
+                            <p className="text-gray-600">
+                                Abra o console para ver os logs do useEffect
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // 8. Componentes Filhos (Children)
+        const ComponentesFilhosSection = () => {
+            const Card = ({ children, title, color = "blue" }) => {
+                const colorClasses = {
+                    blue: "bg-blue-100 border-blue-300",
+                    green: "bg-green-100 border-green-300",
+                    red: "bg-red-100 border-red-300"
+                };
+
+                return (
+                    <div className={`p-4 rounded border-2 ${colorClasses[color]}`}>
+                        <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                        <div>{children}</div>
+                    </div>
+                );
+            };
+
+            return (
+                <section className="bg-white rounded-lg shadow-lg p-6">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">8. Componentes Filhos (Children)</h2>
+                    <div className="bg-gray-50 rounded p-4 mb-4">
+                        <pre><code>{`// Props.children
+const Card = ({ children, title }) => {
+    return (
+        <div>
+            <h3>{title}</h3>
+            {children}
+        </div>
+    );
+};
+
+// Uso
+<Card title="Título">
+    <p>Conteúdo filho</p>
+    <button>Botão filho</button>
+</Card>`}</code></pre>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-4">
+                        <Card title="Card Azul" color="blue">
+                            <p>Este é o conteúdo do card azul.</p>
+                            <button className="mt-2 bg-blue-500 text-white px-3 py-1 rounded text-sm">
+                                Botão Azul
+                            </button>
+                        </Card>
+                        
+                        <Card title="Card Verde" color="green">
+                            <p>Este é o conteúdo do card verde.</p>
+                            <ul className="list-disc list-inside text-sm">
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                            </ul>
+                        </Card>
+                        
+                        <Card title="Card Vermelho" color="red">
+                            <p>Este é o conteúdo do card vermelho.</p>
+                            <div className="mt-2 text-sm">
+                                <strong>Importante:</strong> Children pode ser qualquer elemento React!
+                            </div>
+                        </Card>
+                    </div>
+                </section>
+            );
+        };
+
+        // Renderizar o componente principal
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "react-tailwind-js-learning",
+  "version": "1.0.0",
+  "description": "Projeto de aprendizado de React.js, Tailwind CSS e JavaScript do zero",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

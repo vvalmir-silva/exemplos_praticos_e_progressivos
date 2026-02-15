@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Básico - Do Zero</title>
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-green-600 mb-4">📚 JavaScript Básico</h1>
+            <p class="text-gray-700">Fundamentos essenciais da linguagem JavaScript</p>
+            <a href="../index.html" class="inline-block mt-4 text-blue-500 hover:underline">← Voltar para o início</a>
+        </header>
+
+        <main class="space-y-8">
+            <!-- Variáveis e Tipos de Dados -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-green-600 mb-4">1. Variáveis e Tipos de Dados</h2>
+                <div class="bg-gray-50 rounded p-4 mb-4">
+                    <pre><code class="text-sm">// Declaração de variáveis
+let nome = "João";           // String
+const idade = 25;            // Number (const não pode ser alterada)
+var cidade = "São Paulo";    // String (forma antiga, evitar)
+
+// Tipos de dados
+let numero = 42;             // Number
+let texto = "Olá Mundo";     // String
+let booleano = true;         // Boolean
+let array = [1, 2, 3];       // Array
+let objeto = { nome: "Ana" }; // Object
+let nulo = null;             // Null
+let indefinido;              // Undefined</code></pre>
+                </div>
+                <button onclick="exemploVariaveis()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Executar Exemplo
+                </button>
+                <div id="resultado-variaveis" class="mt-4 p-4 bg-gray-100 rounded"></div>
+            </section>
+
+            <!-- Operadores -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-green-600 mb-4">2. Operadores</h2>
+                <div class="bg-gray-50 rounded p-4 mb-4">
+                    <pre><code class="text-sm">// Operadores aritméticos
+let a = 10, b = 3;
+console.log(a + b);  // 13 (adição)
+console.log(a - b);  // 7  (subtração)
+console.log(a * b);  // 30 (multiplicação)
+console.log(a / b);  // 3.33 (divisão)
+console.log(a % b);  // 1  (módulo/resto)
+
+// Operadores de comparação
+console.log(a > b);   // true
+console.log(a === b); // false (igualdade estrita)
+console.log(a == "10"); // true (igualdade solta - evitar!)
+
+// Operadores lógicos
+let x = true, y = false;
+console.log(x && y); // false (E lógico)
+console.log(x || y); // true  (OU lógico)
+console.log(!x);     // false (NÃO lógico)</code></pre>
+                </div>
+                <button onclick="exemploOperadores()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Executar Exemplo
+                </button>
+                <div id="resultado-operadores" class="mt-4 p-4 bg-gray-100 rounded"></div>
+            </section>
+
+            <!-- Estruturas de Controle -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-green-600 mb-4">3. Estruturas de Controle</h2>
+                <div class="bg-gray-50 rounded p-4 mb-4">
+                    <pre><code class="text-sm">// Condicional if/else
+let idade = 18;
+if (idade >= 18) {
+    console.log("Maior de idade");
+} else {
+    console.log("Menor de idade");
+}
+
+// Loop for
+for (let i = 0; i < 5; i++) {
+    console.log("Iteração: " + i);
+}
+
+// Loop while
+let contador = 0;
+while (contador < 3) {
+    console.log("Contador: " + contador);
+    contador++;
+}
+
+// Array forEach
+let frutas = ["Maçã", "Banana", "Laranja"];
+frutas.forEach(fruta => {
+    console.log("Fruta: " + fruta);
+});</code></pre>
+                </div>
+                <button onclick="exemploEstruturas()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Executar Exemplo
+                </button>
+                <div id="resultado-estruturas" class="mt-4 p-4 bg-gray-100 rounded"></div>
+            </section>
+
+            <!-- Funções -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-green-600 mb-4">4. Funções</h2>
+                <div class="bg-gray-50 rounded p-4 mb-4">
+                    <pre><code class="text-sm">// Função declarativa
+function saudar(nome) {
+    return "Olá, " + nome + "!";
+}
+
+// Arrow function (forma moderna)
+const somar = (a, b) => a + b;
+
+// Função com múltiplas linhas
+const calcularIMC = (peso, altura) => {
+    const imc = peso / (altura * altura);
+    return imc.toFixed(2);
+};
+
+// Uso das funções
+console.log(saudar("Maria"));
+console.log(somar(5, 3));
+console.log(calcularIMC(70, 1.75));</code></pre>
+                </div>
+                <button onclick="exemploFuncoes()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Executar Exemplo
+                </button>
+                <div id="resultado-funcoes" class="mt-4 p-4 bg-gray-100 rounded"></div>
+            </section>
+
+            <!-- Objetos e Arrays -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-green-600 mb-4">5. Objetos e Arrays</h2>
+                <div class="bg-gray-50 rounded p-4 mb-4">
+                    <pre><code class="text-sm">// Objeto
+const pessoa = {
+    nome: "Carlos",
+    idade: 30,
+    cidade: "Rio de Janeiro",
+    saudar: function() {
+        return `Olá, sou ${this.nome}!`;
+    }
+};
+
+// Acessar propriedades
+console.log(pessoa.nome);
+console.log(pessoa["idade"]);
+console.log(pessoa.saudar());
+
+// Array
+const numeros = [10, 20, 30, 40, 50];
+console.log(numeros[0]);        // 10
+console.log(numeros.length);   // 5
+numeros.push(60);              // Adicionar no final
+console.log(numeros.pop());    // Remover último
+
+// Array methods
+const dobro = numeros.map(n => n * 2);
+const pares = numeros.filter(n => n % 2 === 0);
+const soma = numeros.reduce((acc, n) => acc + n, 0);</code></pre>
+                </div>
+                <button onclick="exemploObjetosArrays()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Executar Exemplo
+                </button>
+                <div id="resultado-objetos" class="mt-4 p-4 bg-gray-100 rounded"></div>
+            </section>
+
+            <!-- Manipulação DOM -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-green-600 mb-4">6. Manipulação do DOM</h2>
+                <div class="bg-gray-50 rounded p-4 mb-4">
+                    <pre><code class="text-sm">// Selecionar elementos
+const titulo = document.getElementById('meu-titulo');
+const botoes = document.getElementsByClassName('btn');
+const paragrafo = document.querySelector('p');
+
+// Modificar conteúdo
+titulo.textContent = 'Novo Título';
+paragrafo.innerHTML = '<strong>Texto em negrito</strong>';
+
+// Modificar estilos
+titulo.style.color = 'blue';
+titulo.classList.add('nova-classe');
+
+// Eventos
+botao.addEventListener('click', function() {
+    alert('Botão clicado!');
+});</code></pre>
+                </div>
+                <div id="meu-titulo" class="text-xl font-bold mb-4">Título Original</div>
+                <button onclick="exemploDOM()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Executar Exemplo DOM
+                </button>
+                <div id="resultado-dom" class="mt-4 p-4 bg-gray-100 rounded"></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Funções para os exemplos
+        function exemploVariaveis() {
+            const resultado = document.getElementById('resultado-variaveis');
+            let nome = "João";
+            const idade = 25;
+            var cidade = "São Paulo";
+            
+            resultado.innerHTML = `
+                <strong>Variáveis:</strong><br>
+                nome: ${nome} (tipo: ${typeof nome})<br>
+                idade: ${idade} (tipo: ${typeof idade})<br>
+                cidade: ${cidade} (tipo: ${typeof cidade})<br>
+                <strong>Tipos de dados:</strong><br>
+                Number: ${typeof 42}<br>
+                String: ${typeof "texto"}<br>
+                Boolean: ${typeof true}<br>
+                Array: ${typeof [1,2,3]}<br>
+                Object: ${typeof {nome: "Ana"}}<br>
+                Null: ${typeof null}<br>
+                Undefined: ${typeof indefinido}
+            `;
+        }
+
+        function exemploOperadores() {
+            const resultado = document.getElementById('resultado-operadores');
+            let a = 10, b = 3;
+            
+            resultado.innerHTML = `
+                <strong>Operadores Aritméticos:</strong><br>
+                ${a} + ${b} = ${a + b}<br>
+                ${a} - ${b} = ${a - b}<br>
+                ${a} * ${b} = ${a * b}<br>
+                ${a} / ${b} = ${(a / b).toFixed(2)}<br>
+                ${a} % ${b} = ${a % b}<br><br>
+                <strong>Operadores de Comparação:</strong><br>
+                ${a} > ${b}: ${a > b}<br>
+                ${a} === ${b}: ${a === b}<br>
+                ${a} == "${a}": ${a == "10"}<br><br>
+                <strong>Operadores Lógicos:</strong><br>
+                true && false: ${true && false}<br>
+                true || false: ${true || false}<br>
+                !true: ${!true}
+            `;
+        }
+
+        function exemploEstruturas() {
+            const resultado = document.getElementById('resultado-estruturas');
+            let saida = "<strong>Condicional:</strong><br>";
+            
+            let idade = 18;
+            if (idade >= 18) {
+                saida += "Maior de idade<br><br>";
+            }
+            
+            saida += "<strong>Loop for:</strong><br>";
+            for (let i = 0; i < 5; i++) {
+                saida += `Iteração: ${i}<br>`;
+            }
+            
+            saida += "<br><strong>Array forEach:</strong><br>";
+            let frutas = ["Maçã", "Banana", "Laranja"];
+            frutas.forEach(fruta => {
+                saida += `Fruta: ${fruta}<br>`;
+            });
+            
+            resultado.innerHTML = saida;
+        }
+
+        function exemploFuncoes() {
+            const resultado = document.getElementById('resultado-funcoes');
+            
+            function saudar(nome) {
+                return "Olá, " + nome + "!";
+            }
+            
+            const somar = (a, b) => a + b;
+            
+            const calcularIMC = (peso, altura) => {
+                const imc = peso / (altura * altura);
+                return imc.toFixed(2);
+            };
+            
+            resultado.innerHTML = `
+                <strong>Funções:</strong><br>
+                saudar("Maria"): ${saudar("Maria")}<br>
+                somar(5, 3): ${somar(5, 3)}<br>
+                calcularIMC(70, 1.75): ${calcularIMC(70, 1.75)}
+            `;
+        }
+
+        function exemploObjetosArrays() {
+            const resultado = document.getElementById('resultado-objetos');
+            
+            const pessoa = {
+                nome: "Carlos",
+                idade: 30,
+                cidade: "Rio de Janeiro",
+                saudar: function() {
+                    return `Olá, sou ${this.nome}!`;
+                }
+            };
+            
+            const numeros = [10, 20, 30, 40, 50];
+            const dobro = numeros.map(n => n * 2);
+            const pares = numeros.filter(n => n % 2 === 0);
+            const soma = numeros.reduce((acc, n) => acc + n, 0);
+            
+            resultado.innerHTML = `
+                <strong>Objeto:</strong><br>
+                pessoa.nome: ${pessoa.nome}<br>
+                pessoa.idade: ${pessoa.idade}<br>
+                pessoa.saudar(): ${pessoa.saudar()}<br><br>
+                <strong>Array Original:</strong> [${numeros.join(", ")}]<br>
+                <strong>Dobro (map):</strong> [${dobro.join(", ")}]<br>
+                <strong>Pares (filter):</strong> [${pares.join(", ")}]<br>
+                <strong>Soma (reduce):</strong> ${soma}
+            `;
+        }
+
+        function exemploDOM() {
+            const titulo = document.getElementById('meu-titulo');
+            const resultado = document.getElementById('resultado-dom');
+            
+            titulo.textContent = 'Título Modificado pelo JavaScript!';
+            titulo.style.color = 'blue';
+            titulo.classList.add('text-2xl');
+            
+            resultado.innerHTML = `
+                <strong>DOM Manipulado!</strong><br>
+                - Título modificado<br>
+                - Cor alterada para azul<br>
+                - Classe adicionada<br>
+                - Conteúdo atualizado com sucesso!
+            `;
+        }
+    </script>
+</body>
+</html>
