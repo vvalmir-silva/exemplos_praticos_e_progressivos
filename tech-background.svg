@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <!-- Gradientes para cada tecnologia -->
+    <linearGradient id="jsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F7DF1E;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#F0DB4F;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="reactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#61DAFB;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#21759B;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="tailwindGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Filtro de blur -->
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#1a1a1a"/>
+  
+  <!-- JavaScript Section (Left) -->
+  <g transform="translate(200, 200)" opacity="0.3">
+    <circle cx="100" cy="100" r="80" fill="url(#jsGradient)" filter="url(#blur)"/>
+    <text x="100" y="110" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#F7DF1E">JS</text>
+    <text x="100" y="200" font-family="monospace" font-size="24" text-anchor="middle" fill="#F7DF1E" opacity="0.7">function()</text>
+    <text x="100" y="230" font-family="monospace" font-size="20" text-anchor="middle" fill="#F7DF1E" opacity="0.5">{ }</text>
+  </g>
+  
+  <!-- React Section (Center) -->
+  <g transform="translate(860, 300)" opacity="0.3">
+    <circle cx="100" cy="100" r="80" fill="url(#reactGradient)" filter="url(#blur)"/>
+    <text x="100" y="110" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#61DAFB">⚛️</text>
+    <text x="100" y="200" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#61DAFB" opacity="0.7">React</text>
+    <text x="100" y="230" font-family="monospace" font-size="20" text-anchor="middle" fill="#61DAFB" opacity="0.5">&lt;/&gt;</text>
+  </g>
+  
+  <!-- Tailwind Section (Right) -->
+  <g transform="translate(1520, 200)" opacity="0.3">
+    <circle cx="100" cy="100" r="80" fill="url(#tailwindGradient)" filter="url(#blur)"/>
+    <text x="100" y="110" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#06B6D4">🎨</text>
+    <text x="100" y="200" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#06B6D4" opacity="0.7">Tailwind</text>
+    <text x="100" y="230" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#06B6D4" opacity="0.5">CSS</text>
+  </g>
+  
+  <!-- Connecting Lines -->
+  <g opacity="0.2">
+    <!-- JS to React -->
+    <line x1="380" y1="300" x2="860" y2="400" stroke="url(#jsGradient)" stroke-width="3" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="0" to="15" dur="2s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- React to Tailwind -->
+    <line x1="1060" y1="400" x2="1520" y2="300" stroke="url(#reactGradient)" stroke-width="3" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="0" to="15" dur="2s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Tailwind to JS (triangle) -->
+    <line x1="1520" y1="300" x2="300" y2="300" stroke="url(#tailwindGradient)" stroke-width="2" stroke-dasharray="10,5" opacity="0.5">
+      <animate attributeName="stroke-dashoffset" from="0" to="15" dur="3s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Floating Elements -->
+  <g opacity="0.1">
+    <!-- JavaScript symbols -->
+    <text x="100" y="500" font-family="monospace" font-size="32" fill="#F7DF1E">const</text>
+    <text x="300" y="700" font-family="monospace" font-size="28" fill="#F7DF1E">let</text>
+    <text x="500" y="600" font-family="monospace" font-size="24" fill="#F7DF1E">var</text>
+    
+    <!-- React symbols -->
+    <text x="700" y="800" font-family="Arial" font-size="32" fill="#61DAFB">useState</text>
+    <text x="900" y="900" font-family="Arial" font-size="28" fill="#61DAFB">useEffect</text>
+    <text x="1100" y="850" font-family="Arial" font-size="24" fill="#61DAFB">Component</text>
+    
+    <!-- Tailwind symbols -->
+    <text x="1300" y="700" font-family="monospace" font-size="32" fill="#06B6D4">flex</text>
+    <text x="1500" y="800" font-family="monospace" font-size="28" fill="#06B6D4">grid</text>
+    <text x="1700" y="750" font-family="monospace" font-size="24" fill="#06B6D4">responsive</text>
+  </g>
+  
+  <!-- Code snippets background -->
+  <g opacity="0.05">
+    <text x="50" y="950" font-family="monospace" font-size="16" fill="#F7DF1E">
+      const app = () => { return 'Hello World'; }
+    </text>
+    <text x="600" y="950" font-family="monospace" font-size="16" fill="#61DAFB">
+      function Component() { return &lt;div&gt;React&lt;/div&gt;; }
+    </text>
+    <text x="1200" y="950" font-family="monospace" font-size="16" fill="#06B6D4">
+      className="flex justify-center items-center"
+    </text>
+  </g>
+</svg>

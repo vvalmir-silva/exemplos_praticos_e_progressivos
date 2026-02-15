@@ -10,143 +10,117 @@
     <link href="./dist/output.css" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 </head>
-<body class="bg-gray-100 min-h-screen relative overflow-hidden">
-    <!-- Background Elements -->
+<body class="bg-gray-900 min-h-screen relative overflow-hidden">
+    <!-- Tech Background Image -->
     <div class="absolute inset-0 pointer-events-none">
-        <!-- JavaScript Elements -->
-        <div class="absolute top-10 left-10 text-green-500/20 text-6xl font-mono transform rotate-12 animate-pulse">{ }</div>
-        <div class="absolute top-32 right-20 text-green-500/15 text-4xl font-mono transform -rotate-6">function()</div>
-        <div class="absolute bottom-20 left-20 text-green-500/10 text-5xl font-mono transform rotate-45">const</div>
+        <img src="./tech-background.svg" alt="Tech Background" class="w-full h-full object-cover opacity-20" />
         
-        <!-- React Elements -->
-        <div class="absolute top-20 right-40 text-blue-500/20 text-7xl animate-spin-slow">⚛️</div>
-        <div class="absolute bottom-32 right-10 text-blue-500/15 text-5xl animate-bounce-slow">&lt;/&gt;</div>
-        <div class="absolute top-1/2 left-1/4 text-blue-500/10 text-6xl transform -rotate-12">React</div>
-        
-        <!-- Tailwind Elements -->
-        <div class="absolute bottom-10 right-1/3 text-purple-500/20 text-6xl">🎨</div>
-        <div class="absolute top-1/3 left-1/3 text-purple-500/15 text-4xl font-bold">CSS</div>
-        <div class="absolute top-2/3 right-1/4 text-purple-500/10 text-5xl transform rotate-6">Tailwind</div>
-        
-        <!-- Connecting Lines -->
-        <svg class="absolute inset-0 w-full h-full" style="z-index: -1;">
-            <line x1="10%" y1="20%" x2="50%" y2="50%" stroke="url(#gradient1)" stroke-width="2" opacity="0.1"/>
-            <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="url(#gradient2)" stroke-width="2" opacity="0.1"/>
-            <line x1="80%" y1="30%" x2="70%" y2="80%" stroke="url(#gradient3)" stroke-width="2" opacity="0.1"/>
-            
-            <defs>
-                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.5" />
-                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.5" />
-                </linearGradient>
-                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.5" />
-                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.5" />
-                </linearGradient>
-                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.5" />
-                    <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.5" />
-                </linearGradient>
-            </defs>
-        </svg>
+        <!-- Overlay for better text visibility -->
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-gray-900/80"></div>
     </div>
     <div id="root"></div>
     
     <script type="text/babel">
         const App = () => {
+            const [isVisible, setIsVisible] = React.useState(false);
+            
+            React.useEffect(() => {
+                setIsVisible(true);
+            }, []);
+            
             return (
-                <div className="container mx-auto px-4 py-8">
-                    <header className="text-center mb-12">
-                        <h1 className="text-4xl font-bold text-blue-600 mb-4">
+                <div className="container mx-auto px-4 py-8 relative">
+                    <header className={`text-center mb-12 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+                        <h1 className="text-4xl font-bold text-blue-600 mb-4 animate-gradient bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 bg-clip-text text-transparent">
                             React.js + Tailwind CSS + JavaScript
                         </h1>
-                        <p className="text-xl text-gray-700">
+                        <p className="text-xl text-gray-300 animate-fade-in">
                             Aprenda do zero com exemplos práticos
                         </p>
                     </header>
 
-                    <div className="mb-12">
-                        <div className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 rounded-xl p-8 text-white shadow-2xl">
-                            <h2 className="text-3xl font-bold text-center mb-8">🚀 A Combinação Perfeita</h2>
+                    <div className={`mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                        <div className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 rounded-xl p-8 text-white shadow-2xl animate-pulse-slow">
+                            <h2 className="text-3xl font-bold text-center mb-8 animate-bounce-in">🚀 A Combinação Perfeita</h2>
                             
                             <div className="grid md:grid-cols-3 gap-6 mb-8">
-                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition">
-                                    <div className="text-4xl mb-3">📜</div>
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/30 animate-float">
+                                    <div className="text-4xl mb-3 animate-spin-slow">📜</div>
                                     <h3 className="text-xl font-bold mb-2">JavaScript</h3>
                                     <p className="text-sm">A base de tudo</p>
                                 </div>
                                 
-                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition">
-                                    <div className="text-4xl mb-3">⚛️</div>
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/30 animate-float-delayed">
+                                    <div className="text-4xl mb-3 animate-pulse">⚛️</div>
                                     <h3 className="text-xl font-bold mb-2">React.js</h3>
                                     <p className="text-sm">Interfaces reativas</p>
                                 </div>
                                 
-                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition">
-                                    <div className="text-4xl mb-3">🎨</div>
+                                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/30 animate-float-more-delayed">
+                                    <div className="text-4xl mb-3 animate-bounce">🎨</div>
                                     <h3 className="text-xl font-bold mb-2">Tailwind CSS</h3>
                                     <p className="text-sm">Estilos modernos</p>
                                 </div>
                             </div>
                             
                             <div className="text-center">
-                                <p className="text-lg mb-4">Juntos criando experiências web incríveis!</p>
-                                <div className="flex justify-center space-x-4">
-                                    <span className="bg-green-600 px-3 py-1 rounded-full text-sm">JS</span>
-                                    <span className="text-2xl">+</span>
-                                    <span className="bg-blue-600 px-3 py-1 rounded-full text-sm">React</span>
-                                    <span className="text-2xl">+</span>
-                                    <span className="bg-purple-600 px-3 py-1 rounded-full text-sm">Tailwind</span>
-                                    <span className="text-2xl">=</span>
-                                    <span className="bg-white text-gray-800 px-3 py-1 rounded-full text-sm font-bold">✨ Magic</span>
+                                <p className="text-lg mb-4 animate-fade-in-up">Juntos criando experiências web incríveis!</p>
+                                <div className="flex justify-center space-x-4 animate-fade-in-up-delayed">
+                                    <span className="bg-green-600 px-3 py-1 rounded-full text-sm transform hover:scale-110 transition">JS</span>
+                                    <span className="text-2xl animate-pulse">+</span>
+                                    <span className="bg-blue-600 px-3 py-1 rounded-full text-sm transform hover:scale-110 transition">React</span>
+                                    <span className="text-2xl animate-pulse">+</span>
+                                    <span className="bg-purple-600 px-3 py-1 rounded-full text-sm transform hover:scale-110 transition">Tailwind</span>
+                                    <span className="text-2xl animate-pulse">=</span>
+                                    <span className="bg-white text-gray-800 px-3 py-1 rounded-full text-sm font-bold transform hover:scale-110 transition animate-sparkle">✨ Magic</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <main className="grid md:grid-cols-3 gap-8">
-                        <section className="bg-white rounded-lg shadow-lg p-6 transform hover:shadow-xl transition">
-                            <h2 className="text-2xl font-semibold text-green-600 mb-4">
+                    <main className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <section className="bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-lg p-6 transform hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-in-left border border-gray-700">
+                            <h2 className="text-2xl font-semibold text-green-400 mb-4">
                                 📚 JavaScript Básico
                             </h2>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-300 mb-4">
                                 Fundamentos da linguagem que vai dar base para tudo.
                             </p>
                             <a href="./exemplos/javascript-basico.html" 
-                               className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+                               className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition transform hover:scale-110">
                                 Ver Exemplos
                             </a>
                         </section>
 
-                        <section className="bg-white rounded-lg shadow-lg p-6 transform hover:shadow-xl transition">
-                            <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+                        <section className="bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-lg p-6 transform hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-in-up border border-gray-700">
+                            <h2 className="text-2xl font-semibold text-blue-400 mb-4">
                                 ⚛️ React.js
                             </h2>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-300 mb-4">
                                 Biblioteca JavaScript para criar interfaces de usuário.
                             </p>
                             <a href="./exemplos/react-basico.html" 
-                               className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                               className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition transform hover:scale-110">
                                 Ver Exemplos
                             </a>
                         </section>
 
-                        <section className="bg-white rounded-lg shadow-lg p-6 transform hover:shadow-xl transition">
-                            <h2 className="text-2xl font-semibold text-purple-600 mb-4">
+                        <section className="bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-lg p-6 transform hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-in-right border border-gray-700">
+                            <h2 className="text-2xl font-semibold text-purple-400 mb-4">
                                 🎨 Tailwind CSS
                             </h2>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-300 mb-4">
                                 Framework CSS utilitário para estilização rápida.
                             </p>
                             <a href="./exemplos/tailwind-exemplos.html" 
-                               className="inline-block bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition">
+                               className="inline-block bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition transform hover:scale-110">
                                 Ver Exemplos
                             </a>
                         </section>
                     </main>
 
-                    <footer className="text-center mt-12 text-gray-600">
-                        <p>Comece pelos exemplos de JavaScript, depois React e por fim Tailwind CSS!</p>
+                    <footer className={`text-center mt-12 text-gray-400 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        <p className="animate-fade-in-up">Comece pelos exemplos de JavaScript, depois React e por fim Tailwind CSS!</p>
                     </footer>
                 </div>
             );
